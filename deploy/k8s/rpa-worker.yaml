@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: rpa-worker-daily
+  namespace: medical-data
+spec:
+  schedule: "0 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: rpa-worker
+              image: ghcr.io/jerryxst/medical-data-rpa-worker:latest
+              imagePullPolicy: IfNotPresent
+              env:
+                - name: DATABASE_URL
+                  valueFrom:
+                    secretKeyRef:
+                      name: medical-data-secret
+                      key: DATABASE_URL
+                - name: RAW_FILE_STORAGE
+                  value: /app/uploads/raw

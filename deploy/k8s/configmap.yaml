@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: medical-data-config
+  namespace: medical-data
+data:
+  POSTGRES_DB: medical_data
+  POSTGRES_USER: medical_user
+  API_CORS_ORIGINS: http://localhost:3000
+  VITE_API_BASE_URL: /api
