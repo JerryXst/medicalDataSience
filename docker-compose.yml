@@ -22,6 +22,8 @@ services:
     environment:
       DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://medical_user:medical_password@db:5432/medical_data}
       API_CORS_ORIGINS: ${API_CORS_ORIGINS:-http://localhost:3000}
+      RAW_FILE_STORAGE: ${RAW_FILE_STORAGE:-/app/uploads/raw}
+      AUTH_SECRET: ${AUTH_SECRET:-medical-data-dev-secret}
     ports:
       - "8000:8000"
     volumes:

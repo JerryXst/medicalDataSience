@@ -20,33 +20,154 @@ body {
 }
 
 .app-header h4,
-.overview h2,
-.pipeline-card h4 {
+.app-sider h4,
+.overview h2 {
   margin: 0;
+}
+
+.app-sider {
+  min-height: 100vh;
+  padding: 24px 12px;
+  background: #ffffff !important;
+  border-right: 1px solid #e6eaf2;
+}
+
+.app-sider h4 {
+  padding: 0 12px 20px;
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.side-nav-item {
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 8px;
+  color: #172033;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+
+.side-nav-item:hover,
+.side-nav-item-active {
+  color: #2454d6;
+  background: #eef4ff;
+}
+
+.side-nav-icon {
+  display: inline-flex;
 }
 
 .app-content {
   padding: 32px;
 }
 
-.overview {
-  max-width: 820px;
-  margin-bottom: 24px;
-}
-
-.pipeline-card {
-  min-height: 210px;
-  border-radius: 8px;
-}
-
-.pipeline-icon {
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
+.login-content {
+  min-height: calc(100vh - 72px);
+  display: flex;
   align-items: center;
   justify-content: center;
+  padding: 32px;
+}
+
+.login-card {
+  width: min(420px, 100%);
   border-radius: 8px;
-  color: #0f6b4f;
-  background: #e7f6ef;
-  font-size: 22px;
+}
+
+.login-hint {
+  margin-top: 16px;
+}
+
+.overview {
+  max-width: 840px;
+  margin-bottom: 4px;
+}
+
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 420px));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.entry-card,
+.upload-panel,
+.task-panel {
+  border-radius: 8px;
+}
+
+.management-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.status-icon {
+  font-size: 18px;
+}
+
+.status-icon-success {
+  color: #16a34a;
+}
+
+.status-icon-error {
+  color: #dc2626;
+}
+
+.status-icon-processing {
+  color: #2563eb;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    display: block;
+  }
+
+  .app-header {
+    height: auto;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px 20px;
+    flex-direction: column;
+  }
+
+  .app-sider {
+    min-height: auto;
+    width: 100% !important;
+    max-width: none !important;
+    flex: none !important;
+  }
+
+  .app-content,
+  .login-content {
+    padding: 20px;
+  }
+
+  .entry-grid,
+  .management-grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
 }
